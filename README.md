@@ -1,5 +1,7 @@
 # Pokémon Recognition API
 
+**Disclaimer: This project is a work in progress. The current model may not be very accurate in recognizing Pokémon. We are continuously working on improving the model's performance.**
+
 This project is a Flask API for Pokémon recognition from images. It uses a deep learning model trained with TensorFlow/Keras to identify Pokémon in images sent via HTTP POST requests.
 
 ## Prerequisites
