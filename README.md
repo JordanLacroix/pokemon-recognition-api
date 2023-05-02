@@ -1,26 +1,55 @@
-# Pokemon Recognition API
+# Pokémon Recognition API
 
-This is a Flask API for recognizing Pokemon using a deep learning model trained on a dataset of 150 Pokemon. 
+This project is a Flask API for Pokémon recognition from images. It uses a deep learning model trained with TensorFlow/Keras to identify Pokémon in images sent via HTTP POST requests.
 
-## Getting started
+## Prerequisites
 
-1. Clone this repo
-2. Install the dependencies: `pip install -r requirements.txt`
-3. Start the server: `python app.py`
+1. Install Python 3.9 or later:
+
+- [Download Python](https://www.python.org/downloads/)
+
+2. Install and configure Conda:
+
+- [Download and install Anaconda](https://www.anaconda.com/products/distribution) or [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
+
+3. Configure TensorFlow for your environment:
+
+- [Install TensorFlow with Conda](https://docs.anaconda.com/anaconda/user-guide/tasks/tensorflow/)
+
+Depending on your system, you might need to install additional packages or drivers to use TensorFlow with GPU support. Please refer to the [TensorFlow GPU support documentation](https://www.tensorflow.org/install/gpu) for more information.
+
+## Installation
+
+1. Clone the GitHub repository:
+
+```
+git clone https://github.com/user/pokemon_recognition.git
+```
 
 ## Usage
 
-Send a POST request to the `/predict` endpoint with an image file in the `file` field of the form data. The response will contain the predicted Pokemon.
+1. Launch the Flask API locally inside Conda environment with Tensorflow:
 
-## Retraining the model
+```
+python app.py
+```
 
-To add a new Pokemon to the recognition model, send a POST request to the `/retrain` endpoint with an image file in the `file` field of the form data and the correct class label in the `class` field of the form data.
+2. In a separate terminal, send a POST request to the API with a Pokémon image to recognize:
 
-## Security
+```
+curl -X POST -F "file=@path/to/your/image.jpg" http://localhost:5000/predict
+```
 
-This API includes rate limiting to prevent abuse. Requests are limited to 10 per minute per IP address. 
+3. The API will return a JSON response containing the recognized Pokémon name:
 
-## Optimization for Production
+```
+{
+  "pokemon": "pikachu"
+}
+```
 
-This API can be optimized for production by using a production-ready web server such as Gunicorn and deploying on a cloud platform such as Azure. 
+## Project Structure
 
+- `app.py`: The main file containing the Flask application and prediction functions.
+- `pokemon_recognition_model.h5`: The file containing the pre-trained deep learning model for Pokémon recognition.
+- `train/`: The directory containing the training images for the model.
