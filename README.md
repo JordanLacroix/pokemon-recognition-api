@@ -54,4 +54,4 @@ curl -X POST -F "file=@path/to/your/image.jpg" http://localhost:5000/predict
 
 - `app.py`: The main file containing the Flask application and prediction functions.
 - `pokemon_recognition_model.h5`: The file containing the pre-trained deep learning model for Pokémon recognition.
-- `train/`: The directory containing the training images for the model.
+- `class_indices.json`: The dictionary mapping class names to their indices.
